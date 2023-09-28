@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  singlestore:
+    container_name: datagen-sdb
+    image: 'ghcr.io/singlestore-labs/singlestoredb-dev:latest'
+    ports:
+      - 3306:3306
+      - 8080:8080
+      - 9000:9000
+    environment:
+      SINGLESTORE_LICENSE: ${LICENSE}
+      START_AFTER_INIT: 'Y'
+      ROOT_PASSWORD: 'apple123'
+
+    volumes:
+      - ./init.sql:/init.sql
+
+  postgresdb:
+    container_name: postgres-db
+    image: postgres:14.1-alpine
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10  
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - APP_DB_USER=docker
+      - APP_DB_PASS=docker
+      - APP_DB_NAME=docker
+    restart: always   
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./pgdata:/var/lib/postgresql/data
+      - ./pgdb:/docker-entrypoint-initdb.d/
+
+volumes:
+  db:
+    driver: local
+

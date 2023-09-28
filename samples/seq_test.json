@@ -1,0 +1,63 @@
+{
+    "tableName": "seq_test",
+    "columns": [
+        {
+            "name": "id",
+            "type": "int(11)",
+            "nullsAllowed": "NO",
+            "key": "PRI",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": true,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 100,
+                "Step": 3,
+                "Max": 120,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "seq1",
+            "type": "int(11)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": true,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 10,
+                "Step": 1,
+                "Max": 20,
+                "Cycle": true
+            }
+        },
+        {
+            "name": "seq2",
+            "type": "int(11)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": true,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 20,
+                "Step": 7,
+                "Max": 999,
+                "Cycle": true
+            }
+        }
+    ],
+    "rows": null
+}

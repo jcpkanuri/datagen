@@ -1,0 +1,120 @@
+{
+    "tableName": "char_types",
+    "columns": [
+        {
+            "name": "id",
+            "type": "bigint(11)",
+            "nullsAllowed": "NO",
+            "key": "UNI",
+            "default": "",
+            "extra": "auto_increment",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mychar",
+            "type": "char(1)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mybinary",
+            "type": "binary(1)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "myvarchar",
+            "type": "varchar(5)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "myvarbinary",
+            "type": "varbinary(10)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mytext",
+            "type": "longtext",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        }
+    ],
+    "rows": null
+}

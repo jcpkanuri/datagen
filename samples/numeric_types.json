@@ -1,0 +1,177 @@
+{
+    "tableName": "numeric_types",
+    "columns": [
+        {
+            "name": "id",
+            "type": "bigint(11)",
+            "nullsAllowed": "NO",
+            "key": "UNI",
+            "default": "",
+            "extra": "auto_increment",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mytinyint",
+            "type": "tinyint(4)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mysmallint",
+            "type": "smallint(6)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mymediumint",
+            "type": "mediumint(9)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "myint",
+            "type": "int(11)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mybigint",
+            "type": "bigint(20)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "myfloat",
+            "type": "float(6,2)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mydouble",
+            "type": "double(10,2)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mydecimal",
+            "type": "decimal(10,2)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        }
+    ],
+    "rows": null
+}

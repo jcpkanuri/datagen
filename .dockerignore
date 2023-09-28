@@ -1,0 +1,9 @@
+.vscode
+db
+output
+samples
+.env
+.gitnore
+*.exe
+*.md
+*.json

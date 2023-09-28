@@ -1,0 +1,63 @@
+{
+    "tableName": "geo_types",
+    "columns": [
+        {
+            "name": "id",
+            "type": "bigint(11)",
+            "nullsAllowed": "NO",
+            "key": "PRI",
+            "default": "",
+            "extra": "auto_increment",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "gpoint",
+            "type": "geographypoint",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "geo",
+            "type": "geography",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        }
+    ],
+    "rows": null
+}

@@ -1,0 +1,101 @@
+{
+    "tableName": "time_types",
+    "columns": [
+        {
+            "name": "id",
+            "type": "bigint(11)",
+            "nullsAllowed": "NO",
+            "key": "UNI",
+            "default": "",
+            "extra": "auto_increment",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mydate",
+            "type": "date",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mytime",
+            "type": "time",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "mytstamp",
+            "type": "timestamp",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        },
+        {
+            "name": "myyear",
+            "type": "year(4)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0,
+            "seqConfig": {
+                "Start": 0,
+                "Step": 0,
+                "Max": 0,
+                "Cycle": false
+            }
+        }
+    ],
+    "rows": null
+}

@@ -1,0 +1,66 @@
+{
+    "tableName": "employee",
+    "columns": [
+        {
+            "name": "id",
+            "type": "bigint(11)",
+            "nullsAllowed": "NO",
+            "key": "MUL",
+            "default": "",
+            "extra": "auto_increment",
+            "generator": {
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0
+        },
+        {
+            "name": "ename",
+            "type": "varchar(100)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "name": "firstname",
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 0
+        },
+        {
+            "name": "dept",
+            "type": "varchar(10)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "name":"oneof",
+                "foreignKey": {
+                    "table":"department",
+                    "column":"name",
+                    "conname":"pgone"
+                }
+            },
+            "sequence": false,
+            "cardinality": 0
+        },
+        {
+            "name": "comment",
+            "type": "varchar(15)",
+            "nullsAllowed": "YES",
+            "key": "",
+            "default": "",
+            "extra": "",
+            "generator": {
+                "name": "lexify",
+                "exp":"???",
+                "foreignKey": {}
+            },
+            "sequence": false,
+            "cardinality": 6
+        }
+    ],
+    "rows": null
+}
