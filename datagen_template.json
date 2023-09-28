@@ -1,0 +1,26 @@
+{
+    "conns":[
+        {
+            "conname":"mysinglestore",
+            "dbtype":"mysql",
+            "host":"localhost",
+            "port":3306,
+            "user":"developer",
+            "pass":"tester123",
+            "dbname":"company"
+        },
+        {
+            "conname":"pgone",
+            "dbtype":"postgres",
+            "host":"localhost",
+            "port":5432,
+            "user":"docker",
+            "pass":"docker",
+            "dbname":"docker"
+        }
+    ],
+    "tuplesize": 500,
+    "batchsize": 50,    
+    "outputDir":"C:\\Users\\sdeveloper\\repos\\singlestore-datagen\\output",
+    "configFormat":"json"
+}
