@@ -38,7 +38,7 @@ Below configuration lists two database connections
     "tuplesize": 500,
     "batchsize": 50,
     "metadataPath": "employee.json",
-    "outputDir":"C:\\Users\\sdeveloper\\repos\\singlestore-datagen\\output",
+    "outputDir":"/Users/jkanuri/datagenerator-main/output",
     "configFormat":"json"
 }
 ```
