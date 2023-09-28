@@ -3,10 +3,10 @@
         {
             "conname":"mysinglestore",
             "dbtype":"mysql",
-            "host":"localhost",
+            "host":"svc-b499f494-fd9c-47f9-9810-d4d021bf6140-dml.aws-virginia-6.svc.singlestore.com",
             "port":3306,
-            "user":"developer",
-            "pass":"tester123",
+            "user":"admin",
+            "pass":"Password123",
             "dbname":"company"
         },
         {
@@ -20,7 +20,8 @@
         }
     ],
     "tuplesize": 500,
-    "batchsize": 50,    
-    "outputDir":"C:\\Users\\sdeveloper\\repos\\singlestore-datagen\\output",
+    "batchsize": 50,
+    "metadataPath": "employee.json",
+    "outputDir":"/Users/jkanuri/Downloads/datagenerator-main/output",
     "configFormat":"json"
 }
