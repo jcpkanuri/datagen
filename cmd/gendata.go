@@ -41,7 +41,9 @@ var gendataCmd = &cobra.Command{
 		}
 
 		configfile, _ := cmd.Flags().GetString("configfile")
-		configfileExtn := path.Ext(configfile)
+		// configfileExtn := path.Ext(configfile)
+		configfileExtn := strings.ReplaceAll(path.Ext(configfile),".","")
+		// log.Info("configFileExtn: " + configfileExtn)
 		outFile, _ := cmd.Flags().GetString("outfile")
 		inline, _ := cmd.Flags().GetBool("inline")
 
