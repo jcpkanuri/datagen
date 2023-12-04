@@ -53,7 +53,7 @@ Steps to use as docker image
 
     - mkdir config output
     - cp datagen_template.json ./config/datagen.json
-    - edit ./config/datagen.json file and update parameters as needed.
+    - edit ./datagen.json file and update parameters as needed.
     
 
 3) Mount config file as volume and run docker container
