@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"golang.org/x/exp/slices"
+	"slices"
 )
-
-//var Fake = faker.New()
 
 func TestFirstName(t *testing.T) {
 

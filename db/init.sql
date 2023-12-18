@@ -68,3 +68,25 @@ create ROWSTORE table seq_test (
     seq2 int,
     primary key(id) 
 );
+
+CREATE TABLE XE
+(
+    resource_id_td DECIMAL(18,0),
+    patient_id integer,
+    group_operational_id VARCHAR(18) ,
+    carrier_operational_id VARCHAR(18) ,
+    score_type_cde character(3) ,
+    score_type_dsc VARCHAR(30) ,
+    score_msr DECIMAL(5,2),
+    score_msr_subgroup_cde character(5) ,
+    score_subgroup_cde_dsc VARCHAR(50) ,
+    disease_state_cde character(5) ,
+    disease_state_txt VARCHAR(50) ,
+    patient_score_eff_dte date,
+    patient_score_end_dte date,
+    insert_tms timestamp,
+    last_update_tms timestamp,
+    resource_id VARCHAR(36) NOT NULL,
+    SORT KEY (patient_score_eff_dte,score_type_cde,score_msr),
+    SHARD KEY (carrier_operational_id,patient_id)
+);

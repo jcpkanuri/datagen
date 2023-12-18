@@ -3,9 +3,11 @@ package types
 import (
 	"datagen/generators"
 	"fmt"
-	//"fmt"
+	"strconv"
 	"strings"
 	"time"
+
+	"github.com/charmbracelet/log"
 )
 
 type Table struct {
@@ -19,18 +21,19 @@ type Table struct {
 }
 
 type Column struct {
-	Name           string               `json:"name" yaml:"name"`
-	DataType       string               `json:"type" yaml:"type"`
-	Nullable       string               `json:"nullsAllowed" yaml:"nullsAllowed"`
-	Key            string               `json:"key" yaml:"key"`
-	DefaultVal     string               `json:"default" yaml:"default"`
-	Extra          string               `json:"extra" yaml:"extra"`
-	Generator      generators.Generator `json:"generator,omitempty" yaml:"generator,omitempty"`
-	Sequence       bool                 `json:"sequence" yaml:"sequence"`
-	DataTypeName   string               `json:"-" yaml:"-"`
-	DataTypeLimits Pair                 `json:"-" yaml:"-"`
-	Cardinality    int                  `json:"cardinality" yaml:"cardinality"`
-	SeqConfig      SequenceConfig       `json:"seqConfig" yaml:"seqConfig"`
+	Name              string               `json:"name" yaml:"name"`
+	DataType          string               `json:"type" yaml:"type"`
+	Nullable          string               `json:"nullsAllowed" yaml:"nullsAllowed"`
+	Key               string               `json:"key" yaml:"key"`
+	DefaultVal        string               `json:"default" yaml:"default"`
+	Extra             string               `json:"extra" yaml:"extra"`
+	Generator         generators.Generator `json:"generator,omitempty" yaml:"generator,omitempty"`
+	Sequence          bool                 `json:"sequence" yaml:"sequence"`
+	DataTypeName      string               `json:"-" yaml:"-"`
+	DataTypeLimits    Pair                 `json:"-" yaml:"-"`
+	Cardinality       int                  `json:"cardinality" yaml:"cardinality"`
+	SeqConfig         SequenceConfig       `json:"seqConfig" yaml:"seqConfig"`
+	NumericGenPattern string               `json:"-" yaml:"-"`
 }
 
 type Row struct {
@@ -44,26 +47,27 @@ func (r Row) ValuesString() string {
 
 func (c Column) GenerateNewValue() string {
 	var retVal string
+	log.Debugf("-----------\nName: %s\nDataType:%s\nLimits: %+v\n", c.Name, c.DataTypeName, c.DataTypeLimits)
 	if c.Generator.Name == "" {
 
 		switch c.DataTypeName {
 		//integer types
 		case "tinyint":
-			retVal = TruncateText(fmt.Sprintf("%d", Fake.Int8Between(-128, 127)), c.DataTypeLimits.First)
+			retVal = TruncateText(strconv.Itoa(int(Fake.Int8Between(-128, 127))), c.DataTypeLimits.First)
 		case "smallint":
-			retVal = TruncateText(fmt.Sprintf("%d", Fake.Int16Between(-32768, 32767)), c.DataTypeLimits.First)
+			retVal = TruncateText(strconv.Itoa(int(Fake.Int16Between(-32768, 32767))), c.DataTypeLimits.First)
 		case "mediumint":
-			retVal = TruncateText(fmt.Sprintf("%d", Fake.Int32Between(-8388608, 8388607)), c.DataTypeLimits.First)
+			retVal = TruncateText(strconv.Itoa(int(Fake.Int32Between(-8388608, 8388607))), c.DataTypeLimits.First)
 		case "int":
-			retVal = TruncateText(fmt.Sprintf("%d", Fake.Int32Between(-2147483648, 2147483647)), c.DataTypeLimits.First)
+			retVal = TruncateText(strconv.Itoa(int(Fake.Int32Between(-2147483648, 2147483647))), c.DataTypeLimits.First)
 		case "bigint":
-			retVal = TruncateText(fmt.Sprintf("%d", Fake.Int64Between(0, 9223372036854775807)), c.DataTypeLimits.First)
+			retVal = TruncateText(strconv.FormatInt(Fake.Int64Between(0, 9223372036854775807), 10), c.DataTypeLimits.First)
 			//float
 		case "float", "double":
-			retVal = TruncateText(fmt.Sprintf("%f", Fake.Float32(c.DataTypeLimits.Second, -98765, 987654)), c.DataTypeLimits.First)
+			retVal = fmt.Sprintf("%f", generateDecimal32(c.NumericGenPattern))
+			//decimal
 		case "decimal":
-			retVal = TruncateText(fmt.Sprintf("%f", Fake.Float64(c.DataTypeLimits.Second, -98765, 998877)), c.DataTypeLimits.First)
-			//
+			retVal = fmt.Sprintf("%f", generateDecimal64(c.NumericGenPattern))
 		case "char", "binary":
 			retVal = "'" + Fake.Letter() + "'"
 		case "varchar", "varbinary":
@@ -102,29 +106,11 @@ func (c Column) GenerateNewValue() string {
 	return retVal
 }
 
-// func FormatInt(s int) string {
-// 	i := strconv.FormatInt(int64(s), 10)
-// 	return i
-// }
+func generateDecimal32(inputPattern string) float32 {
+	value, _ := strconv.ParseFloat(Fake.Numerify(inputPattern), 32)
+	return float32(value)
+}
 
-// func FormatFloat(s float32) string {
-// 	i := strconv.FormatFloat(float64(s), 'f', 2, 6)
-// 	return i
-// }
-
-// func RandomGeoPolygon() string {
-// 	var retVal strings.Builder
-// 	retVal.WriteString("'POLYGON((")
-// 	start := fmt.Sprintf("%d %d", Fake.Int8Between(0, 9), Fake.Int8Between(0, 9))
-// 	retVal.WriteString(start)
-// 	for i := 0; i < 3; i++ {
-// 		item := fmt.Sprintf("%d %d", Fake.Int8Between(0, 9), Fake.Int8Between(0, 9))
-// 		if strings.Compare(start, item) != 0 {
-// 			retVal.WriteString("," + item)
-// 		}
-// 	}
-// 	retVal.WriteString("," + start + "))'")
-
-// 	return retVal.String()
-
-// }
+func generateDecimal64(inputPattern string) float64 {
+	return float64(generateDecimal32(inputPattern))
+}

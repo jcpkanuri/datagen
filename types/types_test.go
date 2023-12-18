@@ -31,16 +31,3 @@ func TestGenerator(t *testing.T) {
 		}
 	}
 }
-
-func TestColumnValueGeneration(t *testing.T) {
-	tinyCol := &Column{Name: "tinycolummn", DataType: "tinyint(2)"}
-
-	fmt.Println("tinycol", tinyCol.GenerateNewValue())
-}
-
-func TestBigIntGen(t *testing.T) {
-	for i := 0; i < 10; i++ {
-		//fmt.Printf(fmt.Sprintf("%d\n", Fake.Int64Between(int64(0), int64(9223372036854775807))))
-		fmt.Printf(fmt.Sprintf("%f\n", Fake.Float32(4, 10, 2)))
-	}
-}
